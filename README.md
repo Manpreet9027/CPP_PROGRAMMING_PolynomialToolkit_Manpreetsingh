@@ -58,7 +58,7 @@ cppmanpreet/
 ├── style.css                 # Dark theme responsive styling
 ├── app.js                    # Web calculus engine & Chart.js driver
 ├── README.md                 # Project documentation
-└── VIVA_QUESTIONS_AND_ANSWERS.md  # Comprehensive Viva preparation handbook
+
 ```
 
 ### Key OOP Principles Demonstrated:
