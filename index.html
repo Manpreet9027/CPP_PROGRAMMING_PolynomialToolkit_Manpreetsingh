@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polynomial Calculus Toolkit | Web Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Polynomial Calculus Toolkit</h1>
+            <p class="subtitle">An Interactive System for Polynomial Mathematics & Calculus Operations</p>
+            <span class="badge">DSA / C++ Project</span>
+        </header>
+
+        <!-- Input Section Card -->
+        <div class="card">
+            <h2>1. Polynomial Input & Parameters</h2>
+            <div class="input-group">
+                <label for="polyInput">Enter Polynomial f(x):</label>
+                <input type="text" id="polyInput" placeholder="e.g. (x+1)^2 or 3x^2 - 5x + 1 or 4x^3 - 2x + 7" value="(x+1)^2">
+            </div>
+
+            <div class="presets">
+                <div class="preset-title">Click to Load Test Presets:</div>
+                <button type="button" class="preset-btn" onclick="setPreset('(x+1)^2')">(x+1)^2</button>
+                <button type="button" class="preset-btn" onclick="setPreset('3x^2 + 2x^2 - 5')">3x^2 + 2x^2 - 5</button>
+                <button type="button" class="preset-btn" onclick="setPreset('4x^3 - 2x + 7')">4x^3 - 2x + 7</button>
+                <button type="button" class="preset-btn" onclick="setPreset('3x^2 + 2x')">3x^2 + 2x</button>
+                <button type="button" class="preset-btn" onclick="setPreset('2x^2 + 3x + 1')">2x^2 + 3x + 1</button>
+                <button type="button" class="preset-btn" onclick="setPreset('x^2 - 4')">x^2 - 4</button>
+            </div>
+
+            <div class="input-row">
+                <div>
+                    <label for="evalX">Evaluation Point (x₀):</label>
+                    <input type="number" id="evalX" step="any" value="2">
+                </div>
+                <div>
+                    <label for="intA">Definite Integral Lower Bound (a):</label>
+                    <input type="number" id="intA" step="any" value="0">
+                </div>
+                <div>
+                    <label for="intB">Definite Integral Upper Bound (b):</label>
+                    <input type="number" id="intB" step="any" value="2">
+                </div>
+            </div>
+
+            <div class="input-row">
+                <div>
+                    <label for="rangeMin">Graph X-Min:</label>
+                    <input type="number" id="rangeMin" step="any" value="-4">
+                </div>
+                <div>
+                    <label for="rangeMax">Graph X-Max:</label>
+                    <input type="number" id="rangeMax" step="any" value="4">
+                </div>
+            </div>
+
+            <button class="btn-primary" onclick="calculateAndPlot()">Compute & Update Plot</button>
+        </div>
+
+        <!-- Mathematical Analysis Results -->
+        <div class="card">
+            <h2>2. Core Mathematical Results</h2>
+            <div class="result-grid">
+                <div class="result-item">
+                    <div class="label">Simplified Polynomial f(x)</div>
+                    <div class="value" id="resExpanded">--</div>
+                </div>
+                <div class="result-item">
+                    <div class="label">Degree of Polynomial</div>
+                    <div class="value" id="resDegree">--</div>
+                </div>
+                <div class="result-item">
+                    <div class="label">First Derivative f'(x)</div>
+                    <div class="value" id="resDeriv1">--</div>
+                </div>
+                <div class="result-item">
+                    <div class="label">Indefinite Integral ∫ f(x) dx</div>
+                    <div class="value" id="resIndefIntegral">--</div>
+                </div>
+                <div class="result-item">
+                    <div class="label">Value at x₀: f(x₀) (Horner's Method)</div>
+                    <div class="value" id="resEvalVal">--</div>
+                </div>
+                <div class="result-item">
+                    <div class="label">Definite Integral ∫[a to b] f(x) dx</div>
+                    <div class="value" id="resDefIntegral">--</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Graph Plot Card -->
+        <div class="card">
+            <h2>3. Function & Derivative Graph</h2>
+            <div class="chart-container">
+                <canvas id="polyChart"></canvas>
+            </div>
+        </div>
+
+        <footer>
+            <p>Polynomial Calculus Toolkit &bull; Built with C++17 Core Engine and Interactive Web Dashboard</p>
+            <p>Designed for Data Structures & Algorithms (DSA) / C++ Practicum Evaluation</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
